@@ -11,7 +11,7 @@ step: 3 [0.1173 0.1254 0.1254 0.2237 0.1173 0.1418 0.1418 0.0073] 0.0375
 comments
 =========
 Während beim scoring herausgefunden wird, wie 
-relevant eine Seite ist (im verhältnis zum Query), 
+RELEVANT eine Seite ist (im Verhältnis zum Query), 
 gibt der page rank an, wie POPULÄR eine Seite ist. 
 Wird dann später mit dem scoring kombiniert, um 
 das Suchergebnis zu optimieren.
