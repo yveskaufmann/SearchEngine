@@ -3,7 +3,7 @@ __author__ = 's0544768'
 
 class CrawlResult: 
     def __init__(self):
-        self.content [
+        self.content = [
             ("text, plapla", 1),
             ("waaaaaaaaaat", 2),
             ("text tex2", 3)
@@ -15,9 +15,9 @@ class CrawlResult:
         ]
 
         self.link_structure = [
-            {2,1,4},
-            {1,1,2},
-            {3,4,5,6}
+            [2,1,4],
+            [1,1,2],
+            [3,4,5,6]
         ]
 
 
