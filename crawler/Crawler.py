@@ -79,8 +79,6 @@ class Crawler:
                 if not self.url_cache:
                     self.url_cache = unseen_links
                     break
-        for page in self.data:
-            print_page(page)
 
 
 d01 = get_path_for_material("d01.html")
@@ -92,5 +90,20 @@ d06 = get_path_for_material("d06.html")
 d07 = get_path_for_material("d07.html")
 d08 = get_path_for_material("d08.html")
 
+
+
+
+
+# instatiate the crawler
 crawler = Crawler()
+
+# start the crawler...
 crawler.start_crawling([d01, d06, d08])
+
+# get the data...
+crawler.data
+
+# print the data...
+for page in crawler.data:
+# ... with print_page(page_object)
+    print_page(page)
