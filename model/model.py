@@ -21,7 +21,13 @@ class CrawlResult:
         ]
 
 
+class Page:
 
+    def __init__(self):
+        self.title = ""
+        self.content = ""
+        self.url = ""
+        self.out_links = []
 
 class Index: 
     def __init__(self):
