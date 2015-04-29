@@ -1,3 +1,6 @@
+
+__author__ = 'Yves'
+
 class BaseParser:
 	"""  
 		Interface for a parser which extract links and 
