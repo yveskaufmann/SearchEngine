@@ -40,10 +40,13 @@ class Crawler:
         page = Page()
         page.url = url
         page.title = soup.title.string
+        soup.title.clear()
         out_links = []
         for out_link in soup.findAll("a"):
             out_links.append(get_path_for_material(out_link["href"]))
+            out_link.clear()
         page.out_links = out_links
+        page.content = soup.get_text()
         self.data.append(page)
         return out_links
 
