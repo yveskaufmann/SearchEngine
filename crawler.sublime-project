@@ -1,0 +1,26 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "/usr/bin/python3.4 -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	 "settings":
+    {
+        "anaconda_linting": false,
+        "anaconda_linting_behaviour": "always",
+        "test_command": "python3.4 -m unittest discover",
+        "use_pylint": false,
+        "validate_imports": true,
+        "python_interpreter": "/usr/bin/python3.4"
+    }
+}
