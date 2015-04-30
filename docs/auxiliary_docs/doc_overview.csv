@@ -1,0 +1,19 @@
+Aufgabe,Name,Input,Output,Hilfsmaterial
+1,Crawler,"d01.html, d06.html, d08.html","URLs
+content","
+link_structure.txt
+docs.txt"
+2,Page Rank,"URLs
+dämpfungsfaktor (0.95)
+teleportationsrate (0.05)
+delta wert (0.04)",pageRanks,page_ranks.txt
+3,Indexbasierte Suche,,,"index.txt
+cosine_scores.txt
+doc_lenghtes.txt
+docs.txt"
+4,Kombination von Indexbasierte Suche und PageRank,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
