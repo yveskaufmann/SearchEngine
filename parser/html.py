@@ -1,27 +1,28 @@
 __author__ = 'Yves'
 
 from bs4 import BeautifulSoup
-from parser.base import BaseParser
+from model.model import Page
+
 from utils.list import ListUtil
 
-class HTMLParser(BaseParser):
+class HTMLParser:
 	""" 
 		Parser which extract out links and the 
 		text from a a given HTML content. 
 
 	"""
 
-	def __init__(self):
-		BaseParser.__init__(self)
-
 	def parse(self, text):
 		dom = self.parseDocument(text)
 		
-		self.title = self.get_text_from_element('title')
-		self.content = self.get_text_from_element('body')
+		page = Page()
+		page.title = self.get_text_from_element('title')
+		page.content = self.get_text_from_element('body')
 		
-		self.out_links = [link['href'] for link in dom.select('a[href]')]
-		self.out_links = ListUtil.to_list_without_duplicated_entries(self.out_links)
+		page.out_links = [link['href'] for link in dom.select('a[href]')]
+		page.out_links = ListUtil.to_list_without_duplicated_entries(page.out_links)
+
+		return page
 
 	
 	def parseDocument(self, text):
