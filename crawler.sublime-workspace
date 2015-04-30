@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"ex",
+				"expected_output	statement"
+			],
+			[
+				"ass",
+				"assertEqual	function"
+			],
+			[
+				"st",
+				"strip	function"
+			],
+			[
+				"li",
+				"list_of_occurences	statement"
+			],
+			[
+				"doc",
+				"doc_data"
+			],
+			[
+				"ter",
+				"term"
+			],
+			[
+				"fo",
+				"format	function"
+			],
+			[
+				"a",
+				"add_Token_from_docment	function"
+			],
+			[
+				"o",
+				"occurences_in_documents"
+			],
+			[
+				"get",
+				"get_term_if_not_exists_create_one"
+			],
+			[
+				"dumm",
+				"dummy_page	statement"
+			],
+			[
+				"re",
+				"read"
+			],
+			[
+				"du",
+				"dummy_file	statement"
+			],
+			[
 				"pr",
 				"print"
 			],
@@ -20,6 +72,23 @@
 	"buffers":
 	[
 		{
+			"file": "parser/test_html.py",
+			"settings":
+			{
+				"buffer_size": 1262,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "model/model.py",
+			"settings":
+			{
+				"buffer_size": 2137,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "model/__init__.py",
 			"settings":
 			{
 				"buffer_size": 0,
@@ -27,32 +96,30 @@
 			}
 		},
 		{
-			"file": "main.py",
+			"contents": "index.txt\n¯¯¯¯¯¯¯¯¯\n\n(advance, df:1) -> [('d04', 1)]\n(algorithm, df:1) -> [('d07', 1)]\n(all, df:1) -> [('d03', 3)]\n(alternative, df:1) -> [('d03', 1)]\n(away, df:1) -> [('d01', 1)]\n(beginning, df:1) -> [('d03', 1)]\n(benefits, df:1) -> [('d04', 1)]n\n(build, df:1) -> [('d04', 1)]\n(called, df:1) -> [('d01', 1)]\n(canonicalizing, df:1) -> [('d02', 1)]\n(capitalized, df:1) -> [('d03', 1)]\n(certain, df:1) -> [('d01', 1)]\n(character, df:2) -> [('d01', 1), ('d02', 1)]\n(characters, df:1) -> [('d01', 1)]\n(chopping, df:1) -> [('d01', 1)]\n(classes, df:2) -> [('d06', 1), ('d07', 1)]\n(classification, df:3) -> [('d06', 1), ('d08', 4), ('d07', 1)]\n(classifier, df:1) -> [('d07', 1)]\n(collect, df:1) -> [('d04', 1)]\n(consisting, df:1) -> [('d05', 1)]\n(convert, df:1) -> [('d03', 1)]\n(creating, df:1) -> [('d05', 1)]\n(defined, df:1) -> [('d01', 1)]\n(description, df:1) -> [('d06', 1)]\n(despite, df:1) -> [('d02', 1)]\n(dictionary, df:1) -> [('d05', 1)]\n(differences, df:1) -> [('d02', 1)]\n(document, df:3) -> [('d01', 1), ('d06', 1), ('d04', 1)]\n(documents, df:3) -> [('d04', 1), ('d07', 1), ('d05', 1)]\n(each, df:2) -> [('d04', 1), ('d05', 1)]\n(english, df:1) -> [('d03', 1)]\n(every, df:1) -> [('d03', 1)]\n(fixed, df:1) -> [('d06', 1)]\n(function, df:1) -> [('d07', 1)]\n(gain, df:1) -> [('d04', 1)]\n(given, df:2) -> [('d01', 1), ('d06', 1)]\n(heuristic, df:1) -> [('d03', 1)]\n(index, df:3) -> [('d08', 4), ('d04', 1), ('d05', 2)]\n(indexed, df:1) -> [('d04', 1)]\n(indexing, df:1) -> [('d04', 2)]\n(into, df:2) -> [('d01', 1), ('d04', 1)]\n(inverted, df:1) -> [('d05', 1)]\n(just, df:1) -> [('d03', 1)]\n(learn, df:1) -> [('d07', 1)]\n(learning, df:1) -> [('d07', 2)]\n(linguistic, df:1) -> [('d04', 1)]\n(list, df:1) -> [('d04', 2)]\n(lowercase, df:1) -> [('d03', 3)]\n(major, df:1) -> [('d04', 1)]\n(make, df:1) -> [('d03', 1)]\n(making, df:1) -> [('d03', 1)]\n(maps, df:1) -> [('d07', 1)]\n(matches, df:1) -> [('d02', 1)]\n(method, df:1) -> [('d07', 1)]\n(most, df:1) -> [('d03', 1)]\n(normalization, df:1) -> [('d02', 1)]\n(normalized, df:1) -> [('d04', 1)]\n(occur, df:1) -> [('d02', 1)]\n(occurring, df:1) -> [('d03', 1)]\n(occurs, df:1) -> [('d05', 1)]\n(page, df:1) -> [('d08', 1)]\n(perhaps, df:1) -> [('d01', 1)]\n(pieces, df:1) -> [('d01', 1)]\n(postings, df:2) -> [('d08', 4), ('d05', 1)]\n(preprocessing, df:1) -> [('d04', 1)]\n(process, df:1) -> [('d02', 1)]\n(producing, df:1) -> [('d04', 1)]\n(punctuation, df:1) -> [('d01', 1)]\n(retrieval, df:1) -> [('d04', 1)]\n(s, df:1) -> [('d08', 1)]\n(same, df:1) -> [('d01', 1)]\n(sentence, df:1) -> [('d03', 1)]\n(sequence, df:1) -> [('d01', 1)]\n(sequences, df:1) -> [('d02', 1)]\n(set, df:1) -> [('d06', 1)]\n(simplest, df:1) -> [('d03', 1)]\n(some, df:1) -> [('d03', 1)]\n(spam, df:1) -> [('d08', 1)]\n(speed, df:1) -> [('d04', 1)]\n(steps, df:1) -> [('d04', 1)]\n(stopwords, df:1) -> [('d08', 4)]\n(such, df:1) -> [('d01', 1)]\n(superficial, df:1) -> [('d02', 1)]\n(supervised, df:2) -> [('d08', 4), ('d07', 1)]\n(task, df:1) -> [('d01', 1)]\n(term, df:2) -> [('d04', 1), ('d05', 1)]\n(text, df:2) -> [('d06', 1), ('d04', 1)]\n(throwing, df:1) -> [('d01', 1)]\n(time, df:2) -> [('d01', 1), ('d04', 1)]\n(title, df:1) -> [('d03', 1)]\n(token, df:2) -> [('d02', 1), ('d03', 1)]\n(tokenization, df:1) -> [('d01', 1)]\n(tokenize, df:1) -> [('d04', 1)]\n(tokens, df:5) -> [('d01', 1), ('d08', 4), ('d02', 2), ('d03', 1), ('d04', 2)]\n(turning, df:1) -> [('d04', 1)]\n(unit, df:1) -> [('d01', 1)]\n(up, df:1) -> [('d01', 1)]\n(uppercase, df:1) -> [('d03', 1)]\n(using, df:1) -> [('d07', 1)]\n(which, df:2) -> [('d03', 1), ('d04', 1)]\n(wish, df:1) -> [('d07', 1)]\n(words, df:1) -> [('d03', 3)]\n",
+			"file": "unterlagen/results/index.txt",
+			"file_size": 3581,
+			"file_write_time": 130747668717483973,
 			"settings":
 			{
-				"buffer_size": 872,
+				"buffer_size": 3573,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "parser/base.py",
+			"file": "model/test_model.py",
 			"settings":
 			{
-				"buffer_size": 534,
+				"buffer_size": 709,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "// Place your settings in the file \"User/Preferences.sublime-settings\", which\n// overrides the settings in here.\n//\n// Settings may also be placed in file type specific options files, for\n// example, in Packages/Python/Python.sublime-settings for python files.\n{\n    // Sets the colors used within the text area\n    \"color_scheme\": \"Packages/Color Scheme - Default/Monokai.tmTheme\",\n\n    // Note that the font_face and font_size are overridden in the platform\n    // specific settings file, for example, \"Preferences (Linux).sublime-settings\".\n    // Because of this, setting them here will have no effect: you must set them\n    // in your User File Preferences.\n    \"font_face\": \"\",\n    \"font_size\": 10,\n\n    // Valid options are \"no_bold\", \"no_italic\", \"no_antialias\", \"gray_antialias\",\n    // \"subpixel_antialias\", \"no_round\" (OS X only), \"gdi\" (Windows only) and\n    // \"directwrite\" (Windows only)\n    \"font_options\": [],\n\n    // Characters that are considered to separate words\n    \"word_separators\": \"./\\\\()\\\"'-:,.;<>~!@#$%^&*|+=[]{}`~?\",\n\n    // Set to false to prevent line numbers being drawn in the gutter\n    \"line_numbers\": true,\n\n    // Set to false to hide the gutter altogether\n    \"gutter\": true,\n\n    // Spacing between the gutter and the text\n    \"margin\": 4,\n\n    // Fold buttons are the triangles shown in the gutter to fold regions of text\n    \"fold_buttons\": true,\n\n    // Hides the fold buttons unless the mouse is over the gutter\n    \"fade_fold_buttons\": true,\n\n    // Columns in which to display vertical rulers\n    \"rulers\": [],\n\n    // Set to true to turn spell checking on by default\n    \"spell_check\": false,\n\n    // The number of spaces a tab is considered equal to\n    \"tab_size\": 4,\n\n    // Set to true to insert spaces when tab is pressed\n    \"translate_tabs_to_spaces\": false,\n\n    // If translate_tabs_to_spaces is true, use_tab_stops will make tab and\n    // backspace insert/delete up to the next tabstop\n    \"use_tab_stops\": true,\n\n    // Set to false to disable detection of tabs vs. spaces on load\n    \"detect_indentation\": true,\n\n    // Calculates indentation automatically when pressing enter\n    \"auto_indent\": true,\n\n    // Makes auto indent a little smarter, e.g., by indenting the next line\n    // after an if statement in C. Requires auto_indent to be enabled.\n    \"smart_indent\": true,\n\n    // Adds whitespace up to the first open bracket when indenting. Requires\n    // auto_indent to be enabled.\n    \"indent_to_bracket\": false,\n\n    // Trims white space added by auto_indent when moving the caret off the\n    // line.\n    \"trim_automatic_white_space\": true,\n\n    // Disables horizontal scrolling if enabled.\n    // May be set to true, false, or \"auto\", where it will be disabled for\n    // source code, and otherwise enabled.\n    \"word_wrap\": \"auto\",\n\n    // Set to a value other than 0 to force wrapping at that column rather than the\n    // window width\n    \"wrap_width\": 0,\n\n    // Set to false to prevent word wrapped lines from being indented to the same\n    // level\n    \"indent_subsequent_lines\": true,\n\n    // Draws text centered in the window rather than left aligned\n    \"draw_centered\": false,\n\n    // Controls auto pairing of quotes, brackets etc\n    \"auto_match_enabled\": true,\n\n    // Word list to use for spell checking\n    \"dictionary\": \"Packages/Language - English/en_US.dic\",\n\n    // Sets which scopes are checked for spelling errors\n    \"spelling_selector\": \"markup.raw, source string.quoted - punctuation - meta.preprocessor.c.include, source comment - source comment.block.preprocessor, -(source, constant, keyword, storage, support, variable, markup.underline.link, meta.tag)\",\n\n    // Set to true to draw a border around the visible rectangle on the minimap.\n    // The color of the border will be determined by the \"minimapBorder\" key in\n    // the color scheme\n    \"draw_minimap_border\": false,\n\n    // Always visualise the viewport on the minimap, as opposed to only\n    // showing it on mouse over\n    \"always_show_minimap_viewport\": false,\n\n    // If enabled, will highlight any line with a caret\n    \"highlight_line\": false,\n\n    // Valid values are \"smooth\", \"phase\", \"blink\" and \"solid\".\n    \"caret_style\": \"smooth\",\n\n    // These settings control the size of the caret\n    \"caret_extra_top\": 0,\n    \"caret_extra_bottom\": 0,\n    \"caret_extra_width\": 0,\n\n    // Set to false to disable underlining the brackets surrounding the caret\n    \"match_brackets\": true,\n\n    // Set to false if you'd rather only highlight the brackets when the caret is\n    // next to one\n    \"match_brackets_content\": true,\n\n    // Set to false to not highlight square brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_square\": true,\n\n    // Set to false to not highlight curly brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_braces\": true,\n\n    // Set to false to not highlight angle brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_angle\": false,\n\n    // Enable visualization of the matching tag in HTML and XML\n    \"match_tags\": true,\n\n    // Highlights other occurrences of the currently selected text\n    \"match_selection\": true,\n\n    // Additional spacing at the top of each line, in pixels\n    \"line_padding_top\": 0,\n\n    // Additional spacing at the bottom of each line, in pixels\n    \"line_padding_bottom\": 0,\n\n    // Set to false to disable scrolling past the end of the buffer.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"scroll_past_end\": true,\n\n    // This controls what happens when pressing up or down when on the first\n    // or last line.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"move_to_limit_on_up_down\": false,\n\n    // Set to \"none\" to turn off drawing white space, \"selection\" to draw only the\n    // white space within the selection, and \"all\" to draw all white space\n    \"draw_white_space\": \"selection\",\n\n    // Set to false to turn off the indentation guides.\n    // The color and width of the indent guides may be customized by editing\n    // the corresponding .tmTheme file, and specifying the colors \"guide\",\n    // \"activeGuide\" and \"stackGuide\"\n    \"draw_indent_guides\": true,\n\n    // Controls how the indent guides are drawn, valid options are\n    // \"draw_normal\" and \"draw_active\". draw_active will draw the indent\n    // guides containing the caret in a different color.\n    \"indent_guide_options\": [\"draw_normal\"],\n\n    // Set to true to removing trailing white space on save\n    \"trim_trailing_white_space_on_save\": false,\n\n    // Set to true to ensure the last line of the file ends in a newline\n    // character when saving\n    \"ensure_newline_at_eof_on_save\": false,\n\n    // Set to true to automatically save files when switching to a different file\n    // or application\n    \"save_on_focus_lost\": false,\n\n    // Save via writing to an alternate file, and then renaming it over the\n    // original file.\n    \"atomic_save\": false,\n\n    // The encoding to use when the encoding can't be determined automatically.\n    // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.\n    \"fallback_encoding\": \"Western (Windows 1252)\",\n\n    // Encoding used when saving new files, and files opened with an undefined\n    // encoding (e.g., plain ascii files). If a file is opened with a specific\n    // encoding (either detected or given explicitly), this setting will be\n    // ignored, and the file will be saved with the encoding it was opened\n    // with.\n    \"default_encoding\": \"UTF-8\",\n\n    // Files containing null bytes are opened as hexadecimal by default\n    \"enable_hexadecimal_encoding\": true,\n\n    // Determines what character(s) are used to terminate each line in new files.\n    // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and\n    // 'unix' (LF only).\n    \"default_line_ending\": \"system\",\n\n    // When enabled, pressing tab will insert the best matching completion.\n    // When disabled, tab will only trigger snippets or insert a tab.\n    // Shift+tab can be used to insert an explicit tab when tab_completion is\n    // enabled.\n    \"tab_completion\": true,\n\n    // Enable auto complete to be triggered automatically when typing.\n    \"auto_complete\": true,\n\n    // The maximum file size where auto complete will be automatically triggered.\n    \"auto_complete_size_limit\": 4194304,\n\n    // The delay, in ms, before the auto complete window is shown after typing\n    \"auto_complete_delay\": 50,\n\n    // Controls what scopes auto complete will be triggered in\n    \"auto_complete_selector\": \"source - comment, meta.tag - punctuation.definition.tag.begin\",\n\n    // Additional situations to trigger auto complete\n    \"auto_complete_triggers\": [ {\"selector\": \"text.html\", \"characters\": \"<\"} ],\n\n    // By default, auto complete will commit the current completion on enter.\n    // This setting can be used to make it complete on tab instead.\n    // Completing on tab is generally a superior option, as it removes\n    // ambiguity between committing the completion and inserting a newline.\n    \"auto_complete_commit_on_tab\": false,\n\n    // Controls if auto complete is shown when snippet fields are active.\n    // Only relevant if auto_complete_commit_on_tab is true.\n    \"auto_complete_with_fields\": false,\n\n    // Controls what happens when pressing the up key while the first item in\n    // the auto complete window is selected: if false, the window is hidden,\n    // otherwise the last item in the window is selected. Likewise for the\n    // down key when the last item is selected.\n    \"auto_complete_cycle\": false,\n\n    // Automatically close HTML and XML tags when </ is entered.\n    \"auto_close_tags\": true,\n\n    // By default, shift+tab will only unindent if the selection spans\n    // multiple lines. When pressing shift+tab at other times, it'll insert a\n    // tab character - this allows tabs to be inserted when tab_completion is\n    // enabled. Set this to true to make shift+tab always unindent, instead of\n    // inserting tabs.\n    \"shift_tab_unindent\": false,\n\n    // If true, the copy and cut commands will operate on the current line\n    // when the selection is empty, rather than doing nothing.\n    \"copy_with_empty_selection\": true,\n\n    // If true, the selected text will be copied into the find panel when it's\n    // shown.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"find_selected_text\": true,\n\n    // When auto_find_in_selection is enabled, the \"Find in Selection\" flag\n    // will be enabled automatically when multiple lines of text are selected\n    \"auto_find_in_selection\": false,\n\n    // When drag_text is enabled, clicking on selected text will begin a\n    // drag-drop operation. This is not currently implemented under Linux.\n    \"drag_text\": true,\n\n    //\n    // User Interface Settings\n    //\n\n    // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)\n    \"theme\": \"Default.sublime-theme\",\n\n    // Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to\n    // scroll slower, or set to larger than 1 to scroll faster\n    \"scroll_speed\": 1.0,\n\n    // Controls side bar animation when expanding or collapsing folders\n    \"tree_animation_enabled\": true,\n\n    // Controls animation throughout the application\n    \"animation_enabled\": true,\n\n    // Makes tabs with modified files more visible\n    \"highlight_modified_tabs\": false,\n\n    \"show_tab_close_buttons\": true,\n\n    // Show folders in the side bar in bold\n    \"bold_folder_labels\": false,\n\n    // OS X only: Set to true to disable Lion style full screen support.\n    // Sublime Text must be restarted for this to take effect.\n    \"use_simple_full_screen\": false,\n\n    // OS X only. Valid values are true, false, and \"auto\". Auto will enable\n    // the setting when running on a screen 2560 pixels or wider (i.e., a\n    // Retina display). When this setting is enabled, OpenGL is used to\n    // accelerate drawing. Sublime Text must be restarted for changes to take\n    // effect.\n    \"gpu_window_buffer\": \"auto\",\n\n    // Valid values are \"system\", \"enabled\" and \"disabled\"\n    \"overlay_scroll_bars\": \"system\",\n\n    // Allows tabs to scroll left and right, instead of simply shrinking\n    \"enable_tab_scrolling\": true,\n\n    // Display file encoding in the status bar\n    \"show_encoding\": false,\n\n    // Display line endings in the status bar\n    \"show_line_endings\": false,\n\n    //\n    // Application Behavior Settings\n    //\n\n    // Exiting the application with hot_exit enabled will cause it to close\n    // immediately without prompting. Unsaved modifications and open files will\n    // be preserved and restored when next starting.\n    //\n    // Closing a window with an associated project will also close the window\n    // without prompting, preserving unsaved changes in the workspace file\n    // alongside the project.\n    \"hot_exit\": true,\n\n    // remember_full_screen will allow Sublime Text to start in full screen\n    // mode if it was exited in full screen mode. When set to false, Sublime\n    // Text will never start in full screen mode.\n    \"remember_full_screen\": false,\n\n    // Always prompt before reloading a file, even if the file hasn't been\n    // modified. The default behavior is to automatically reload a file if it\n    // hasn't been edited. If a file has unsaved changes, a prompt will always\n    // be shown.\n    \"always_prompt_for_file_reload\": false,\n\n    // OS X only: When files are opened from finder, or by dragging onto the\n    // dock icon, this controls if a new window is created or not.\n    \"open_files_in_new_window\": true,\n\n    // OS X only: This controls if an empty window is created at startup or not.\n    \"create_window_at_startup\": true,\n\n    // Set to true to close windows as soon as the last file is closed, unless\n    // there's a folder open within the window.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"close_windows_when_empty\": false,\n\n    // Show the full path to files in the title bar.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"show_full_path\": true,\n\n    // Shows the Build Results panel when building. If set to false, the Build\n    // Results can be shown via the Tools/Build Results menu.\n    \"show_panel_on_build\": true,\n\n    // Preview file contents when clicking on a file in the side bar. Double\n    // clicking or editing the preview will open the file and assign it a tab.\n    \"preview_on_click\": true,\n\n    // folder_exclude_patterns and file_exclude_patterns control which files\n    // are listed in folders on the side bar. These can also be set on a per-\n    // project basis.\n    \"folder_exclude_patterns\": [\".svn\", \".git\", \".hg\", \"CVS\"],\n    \"file_exclude_patterns\": [\"*.pyc\", \"*.pyo\", \"*.exe\", \"*.dll\", \"*.obj\",\"*.o\", \"*.a\", \"*.lib\", \"*.so\", \"*.dylib\", \"*.ncb\", \"*.sdf\", \"*.suo\", \"*.pdb\", \"*.idb\", \".DS_Store\", \"*.class\", \"*.psd\", \"*.db\", \"*.sublime-workspace\"],\n    // These files will still show up in the side bar, but won't be included in\n    // Goto Anything or Find in Files\n    \"binary_file_patterns\": [\"*.jpg\", \"*.jpeg\", \"*.png\", \"*.gif\", \"*.ttf\", \"*.tga\", \"*.dds\", \"*.ico\", \"*.eot\", \"*.pdf\", \"*.swf\", \"*.jar\", \"*.zip\"],\n\n    // File indexing parses all files in the side bar, and builds an index of\n    // their symbols. This is required for Goto Definition to work.\n    \"index_files\": true,\n\n    // Set the number threads to use for indexing. A value of 0 will make\n    // Sublime Text guess based on the number of cores. Use the index_files\n    // setting to disable all workers.\n    \"index_workers\": 0,\n\n    // index_exclude_patterns indicate which files won't be indexed.\n    \"index_exclude_patterns\": [\"*.log\"],\n\n    // When enabled, anonymised usage data is sent back, assisting Sublime HQ\n    // in making informed decisions about improving Sublime Text. File names\n    // and file contents are never included, but data such as computer\n    // specifications, startup time, installed packages, and edited file types\n    // are. When disabled, telemetry is neither recorded or sent.\n    // A setting of auto will enable telemetry in dev builds, and disable\n    // telemetry in regular builds.\n    \"enable_telemetry\": \"auto\",\n\n    // List any packages to ignore here. When removing entries from this list,\n    // a restart may be required if the package contains plugins.\n    \"ignored_packages\": [\"Vintage\"]\n}\n",
-			"file": "/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
+			"file": "/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 16856,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
+				"buffer_size": 185,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -80,9 +147,25 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "ann",
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"Anaconda: Run Project Tests"
+			],
+			[
+				"run",
+				"Anaconda: Run Current File Tests"
+			],
+			[
+				"test",
+				"Anaconda: Run Current Test"
+			],
+			[
+				"run test",
+				"Anaconda: Run Current Test"
+			],
 			[
 				"ann",
 				"Anaconda: Show error list"
@@ -153,17 +236,31 @@
 	},
 	"expanded_folders":
 	[
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS",
 		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/crawler",
 		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/model",
 		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser",
-		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/unterlagen"
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/unterlagen",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/unterlagen/results",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/utils"
 	],
 	"file_history":
 	[
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/html.py",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/requirements.txt",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/model/__init__.py",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/__init__.py",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/crawler.sublime-project",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/unterlagen/results/index.txt",
 		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/main.py",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/base.py",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/dummy.html",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/test_html.py",
+		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS/parser/__pycache__/dummy.html",
+		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
 		"/home/fxdapokalypse/Uni/CMS/main.py",
@@ -179,7 +276,6 @@
 		"/home/fxdapokalypse/Uni/CMS/parser/__init__.py",
 		"/home/fxdapokalypse/Uni/CMS/parser.py",
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/python3.sublime-build",
-		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/User/sublime_jedi.sublime-settings",
 		"/home/fxdapokalypse/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
 		"/home/fxdapokalypse/Uni/CMS/model.py",
@@ -205,6 +301,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"python_interpreter",
 			"pyth"
 		],
 		"highlight": true,
@@ -223,12 +320,73 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "parser/test_html.py",
 					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								528,
+								528
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "model/model.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1697,
+								1697
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 714.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "model/__init__.py",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 0,
@@ -244,37 +402,63 @@
 						],
 						"settings":
 						{
-							"default_dir": "/home/fxdapokalypse/Documents/Uni/CMS&Suchsysteme/Uebung1/CMS",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "main.py",
+					"buffer": 3,
+					"file": "unterlagen/results/index.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 872,
+						"buffer_size": 3573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								686,
-								686
+								21,
+								21
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "model/test_model.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -284,49 +468,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "parser/base.py",
+					"buffer": 5,
+					"file": "/home/fxdapokalypse/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 534,
+						"buffer_size": 185,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								261,
-								261
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/fxdapokalypse/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16856,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1970,
-								1970
+								92,
+								92
 							]
 						],
 						"settings":
@@ -334,10 +489,10 @@
 							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -395,6 +550,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"mo",
+				"model/model.py"
+			]
 		],
 		"width": 0.0
 	},
