@@ -1,8 +1,26 @@
 # Prevent the Pycharm Project from Version Control
 .idea/
-.DSStore
-model/.DSStore
-unterlagen/.DS_Store
-material/.DS_Store
-crawler/.DS_Store
-model/__pycache__/
+
+# OS Specific files
+
+.DS_Store
+.DSStore/
+._*
+Thumbs.db
+Desktop.ini
+Dropbox.ini
+
+# Compiled Sources 
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.py[cod]
+__pycache__/
+
+
+
+
