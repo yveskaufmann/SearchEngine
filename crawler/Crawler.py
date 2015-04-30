@@ -17,7 +17,7 @@ class Crawler:
 
     @staticmethod
     def get_path_for_material(file_name):
-        material_dir = os.path.join(os.getcwd(), os.pardir, "docs","ressources")
+        material_dir = os.path.join(os.path.dirname(__file__), os.pardir, "docs","ressources")
         return os.path.join(material_dir, file_name)
 
     @staticmethod
@@ -129,35 +129,3 @@ class Crawler:
                     break
 
 
-
-#  _____                           _
-# | ____|_  ____ _ _ __ ___  _ __ | | ___
-# |  _| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \
-# | |___ >  < (_| | | | | | | |_) | |  __/
-# |_____/_/\_\__,_|_| |_| |_| .__/|_|\___|
-#                           |_|
-
-# Create a seed
-seed = [
-    Crawler.get_path_for_material("d01.html"),
-    Crawler.get_path_for_material("d06.html"),
-    Crawler.get_path_for_material("d08.html")
-]
-
-# Instatiate the crawler.
-crawler = Crawler()
-
-# Start the crawler with the seed.
-crawler.start_crawling(seed)
-
-# Access the data.
-crawler.data
-
-# Print the data...
-for page in crawler.data:
-# # ... with print_page(page_object)
-    Crawler.print_page(page)
-
-# Print the link structure
-link_structure_txt = crawler.get_link_structure_text()
-print(link_structure_txt)
