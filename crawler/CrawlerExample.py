@@ -29,9 +29,9 @@ def crawler_example():
     crawler.data
 
     # Print the data...
-    #for page in crawler.data:
+    for page in crawler.data:
     # # ... with print_page(page_object)
-        #Crawler.print_page(page)
+        Crawler.print_page(page)
 
     # Print the link structure
     link_structure_txt = crawler.get_link_structure_text()
