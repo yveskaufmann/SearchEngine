@@ -1,5 +1,6 @@
 __author__ = 's0544768'
 
+import os
 
 class CrawlResult: 
     def __init__(self):
@@ -30,19 +31,20 @@ class Page:
         self.out_links = []
 
 
-import os
+
 
 class Index: 
     def __init__(self):
 
-        self.terms = {}
+        self.__terms = {}
+        
 
-    def add_Token_from_docment(self, token, document):
+    def register_Token(self, token, document):
         """
             Register a Token which was found in a specific document.
 
         """
-        term = self.__get_term_if_not_exists_create_one(token)
+        term = self.__get_term_if_exists_or_create_one(token)
         if document not in term['occurences']: 
             term['occurences'][document] = {'times' : 0}
             term['frequence'] += 1    
@@ -50,42 +52,55 @@ class Index:
         term['occurences'][document]['times'] += 1 
 
     
-    def __get_term_if_not_exists_create_one(self, token):
+
+    def __get_term_if_exists_or_create_one(self, token):
         
         """
             Return registered token or create a new one 
             if the specified token isn't already registered
         """
         
-        if token in self.terms:
-            return self.terms[token]
+        if token in self.__terms:
+            return self.__terms[token]
         
 
-        self.terms[token] = {
+        self.__terms[token] = {
             'occurences': dict(),
             'score' : 0,
             'frequence' : 0
         } 
 
-        return self.terms[token]
+        return self.__terms[token]
 
     def __str__(self):
 
         """
             Create the required string representation of an 
             index for more details see unterlagen/results/index.txt
+
+            For example a possible output could be:
+
+            (advance, df:1) -> [('d04', 1)]
+            (algorithm, df:1) -> [('d07', 1)]
+            (documents, df:3) -> [('d04', 1), ('d07', 1), ('d05', 1)]
+            ...
+
         """
-        
         output = []
-        # (advance, df:1) -> [('d04', 1)]
-        for token, term in self.terms.items():
+        
+        for token, term in sorted(self.__terms.items()):
+            
+            render_occurence = lambda id, doc:"('{0}', {1})".format(id, doc['times'])
+            
+            list_of_occurences = [ render_occurence(id, doc) for id, doc in term['occurences'].items() ]
+            list_of_occurences = ', '.join(list_of_occurences) 
 
-            list_of_occurences = [ "('{0}', {1})".format(doc, doc_data['times']) for doc, doc_data in term['occurences'].items() ]
-
-            newLine = "({0}, df:{1}) -> [{2}]".format(token, term['frequence'], ', '.join(list_of_occurences) )
+            newLine = "({0}, df:{1}) -> [{2}]".format(token, term['frequence'], list_of_occurences)
             output.append(newLine)
 
         return os.linesep.join(output)
+
+
 
 
 
