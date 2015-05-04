@@ -1,6 +1,7 @@
 __author__ = 'pascal'
 
 from crawler.Crawler import Crawler
+from indexer.indexer import Indexer
 from utils.path import RessourceUtil
 
 #  _____                           _
@@ -36,3 +37,17 @@ def crawler_example():
     # Print the link structure
     link_structure_txt = crawler.get_link_structure_text()
     print(link_structure_txt)
+
+    # Create an Indexer 
+    indexer = Indexer()
+
+    # Index the pages
+    indexer.index_pages(*crawler.data)
+
+    # Print your index 
+    print(indexer.index)
+
+    
+
+
+
