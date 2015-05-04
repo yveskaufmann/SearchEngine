@@ -1,6 +1,7 @@
 __author__ = 'pascal'
 
 from crawler.Crawler import Crawler
+from utils.path import RessourceUtil
 
 #  _____                           _
 # | ____|_  ____ _ _ __ ___  _ __ | | ___
@@ -13,11 +14,11 @@ def crawler_example():
 
     # Create a seed
     seed = [
-        Crawler.get_path_for_material("d01.html"),
-        Crawler.get_path_for_material("d06.html"),
-        Crawler.get_path_for_material("d08.html")
+        RessourceUtil.get_ressource_path('d01.html'),
+        RessourceUtil.get_ressource_path('d06.html'),
+        RessourceUtil.get_ressource_path('d08.html')
     ]
-
+    
     # Instatiate the crawler.
     crawler = Crawler()
 
@@ -28,9 +29,9 @@ def crawler_example():
     crawler.data
 
     # Print the data...
-    for page in crawler.data:
+    #for page in crawler.data:
     # # ... with print_page(page_object)
-        Crawler.print_page(page)
+        #Crawler.print_page(page)
 
     # Print the link structure
     link_structure_txt = crawler.get_link_structure_text()

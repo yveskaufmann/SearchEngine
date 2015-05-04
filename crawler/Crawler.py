@@ -1,10 +1,13 @@
 __author__ = 'pascal'
 
-from bs4 import BeautifulSoup
-from model.model import Page
+import os
 import re
 
-import os
+from bs4 import BeautifulSoup
+from model.model import Page
+from parser.html import HTMLParser
+from utils.path import PathUtil
+from utils.path import RessourceUtil
 
 class Crawler:
 
@@ -15,6 +18,8 @@ class Crawler:
         with open(url, "r") as file:
             return file.read()
 
+
+    @DeprecationWarning #Please use util.path.RessourceUtil.get_ressource_path instead of get_path_for_material
     @staticmethod
     def get_path_for_material(file_name):
         material_dir = os.path.join(os.path.dirname(__file__), os.pardir, "docs","ressources")
@@ -31,6 +36,7 @@ class Crawler:
             print(link)
 
 
+    @DeprecationWarning #Please check if you need this method, because HTMLParser ignores empty lines by default.
     @staticmethod
     def remove_empty_lines(txt):
         new_txt = ""
@@ -99,27 +105,21 @@ class Crawler:
 
     def extract_data_and_get_out_links(self, url):
         txt = Crawler.string_for_url(url)
-        soup = BeautifulSoup(txt)
-        page = Page()
+        
+        parser = HTMLParser()
+        page = parser.parse(txt, base_url = RessourceUtil.get_ressource_path())
         page.url = url
-        page.title = soup.title.string
-        soup.title.clear()
-        out_links = []
-        for out_link in soup.findAll("a"):
-            out_links.append(Crawler.get_path_for_material(out_link["href"]))
-            out_link.clear()
-        page.out_links = out_links
-        content = Crawler.remove_empty_lines(soup.get_text())
-        page.content = content
+
         self.data.append(page)
-        return out_links
+        return page.out_links
 
     def start_crawling(self, seed):
         self.url_cache = list(seed)
         url_db = list(seed)
+
         while self.url_cache != []:
             unseen_links = []
-            while True:
+            while True: 
                 url = self.url_cache.pop(0)
                 out_links = (self.extract_data_and_get_out_links(url))
                 tmp_links = self.merge_without_duplicates(url_db, out_links)

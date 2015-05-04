@@ -3,6 +3,7 @@ import re
 
 from model.model import Page
 from parser.html import HTMLParser
+from utils.path import RessourceUtil
 
 class StopWords:
     """ A collection of words which should be omitted from indexing """
@@ -37,11 +38,9 @@ class StopWords:
             Load the stop words from 
             the file docs/ressources/stop_words.txt.
         """ 
-        # A crappy hack in order to load all stop words because i'm lazy :)
         
-        path_to_stop_words = path.realpath('docs/ressources/stop_words.txt')
-        with open(path_to_stop_words) as file:
-            stop_words = file.read()
+        stop_words = RessourceUtil.get_content_from_ressource('stop_words.txt')
+        # A crappy hack in order to load all stop words because i'm lazy :)
         StopWords.words = eval('[' + stop_words  + ']')
 
 class TokenLexer:
@@ -81,11 +80,5 @@ class TokenLexer:
 
 
 
-def load_page():
-    test_file = path.join(path.dirname(__file__), '../docs/ressources/d01.html')
-    with open(test_file, 'r') as file:
-        page = file.read()
-    parser = HTMLParser()
-    return parser.parse(page)
-    
+
 
