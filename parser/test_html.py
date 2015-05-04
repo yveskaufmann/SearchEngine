@@ -3,6 +3,7 @@ __author__ = 'Yves'
 import unittest
 from parser.html import HTMLParser
 from os.path import join, dirname 
+from utils.path import RessourceUtil
 
 class TestHTMLParser(unittest.TestCase):
     
@@ -19,20 +20,27 @@ class TestHTMLParser(unittest.TestCase):
         expected_content = 'Python hates me :)'
         parse_result = self.parse_page('<html><body>' + expected_content + '</body></html>')
         self.assertEqual(expected_content, parse_result.content)
+
+    def test_parseDummyPageWithBaseURL_ExtractedLinksAreAbsolut(self):
+        parse_result = self.parse_page(base_url = 'http://host/path/')
+        expected_links = [
+            'http://host/path/d02.html',
+            'http://host/path/d03.html',
+            'http://host/path/d04.html'
+        ]
+
+        self.assertListEqual(expected_links, parse_result.out_links)
     
-    def parse_page(self, page = None):
+    def parse_page(self, pageid_or_content = 1, base_url = '.'):
+        
+        content = pageid_or_content
+        if isinstance(pageid_or_content, int):
+            ressource = 'd{0:02}.html'.format(pageid_or_content)
+            content = RessourceUtil.get_content_from_ressource(ressource)
+        
         parser = HTMLParser()
-        page = parser.parse(self.get_dummy_page() if page is None else page)
-        return page
+        return parser.parse(content, base_url=base_url)
 
-    def get_dummy_page(self, page_id = 1):
-        dummy_file_path = join(dirname(__file__), '../docs/ressources/d{0:02}.html'.format(page_id))
-        with open(dummy_file_path) as dummy_file:
-            return dummy_file.read()
-
-
-
-
-if __name__ == '__main__':
+if __name__ == '__main__': 
     unittest.main()
 
