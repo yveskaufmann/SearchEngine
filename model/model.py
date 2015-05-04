@@ -58,11 +58,11 @@ class Index:
 
         """
         term = self.__get_term_if_exists_or_create_one(token)
-        if document not in term['occurences']: 
-            term['occurences'][document] = {'times' : 0}
+        if document not in term['postings']: 
+            term['postings'][document] = {'times' : 0}
             term['frequence'] += 1    
         
-        term['occurences'][document]['times'] += 1 
+        term['postings'][document]['times'] += 1 
 
     
 
@@ -78,9 +78,9 @@ class Index:
         
 
         self.__terms[token] = {
-            'occurences': dict(),
+            'postings': dict(),
             'score' : 0,
-            'frequence' : 0
+            'frequence' : 0 
         } 
 
         return self.__terms[token]
@@ -112,10 +112,10 @@ class Index:
             
             render_occurence = lambda id, doc:"('{0}', {1})".format(id, doc['times'])
             
-            list_of_occurences = [ render_occurence(id, doc) for id, doc in term['occurences'].items() ]
-            list_of_occurences = ', '.join(list_of_occurences) 
+            list_of_postings = [ render_occurence(id, doc) for id, doc in term['postings'].items() ]
+            list_of_postings = ', '.join(list_of_postings) 
 
-            newLine = "({0}, df:{1}) -> [{2}]".format(token, term['frequence'], list_of_occurences)
+            newLine = "({0}, df:{1}) -> [{2}]".format(token, term['frequence'], list_of_postings)
             output.append(newLine)
 
         return os.linesep.join(output)
