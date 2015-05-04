@@ -1,5 +1,6 @@
-# Prevent the Pycharm Project from Version Control
+# Prevent the IDE Project files from Version Control
 .idea/
+*.sublime-workspace
 
 # OS Specific files
 
