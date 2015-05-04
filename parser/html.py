@@ -34,7 +34,7 @@ class HTMLParser:
 		if found_element is None: 
 			return default_value
 		
-		return found_element.get_text(strip=True)
+		return found_element.get_text(strip=False).strip()
 
 
  

@@ -30,12 +30,25 @@ class Page:
         self.url = ""
         self.out_links = []
 
+    def __str__(self):
+        """
+            Create the required string representation of a 
+            page. For a example of a possible output please
+            see docs/results/docs.txt.
 
+        """
+        headline = '-' * 75
+        page_str = os.linesep.join([
+            headline,
+            self.title,
+            headline,
+            self.content 
+        ])
 
+        return page_str
 
 class Index: 
     def __init__(self):
-
         self.__terms = {}
         
 
@@ -76,9 +89,12 @@ class Index:
 
         """
             Create the required string representation of an 
-            index for more details see unterlagen/results/index.txt
+            index for more details see docs/results/index.txt
 
             For example a possible output could be:
+
+            index.txt
+            ¯¯¯¯¯¯¯¯¯
 
             (advance, df:1) -> [('d04', 1)]
             (algorithm, df:1) -> [('d07', 1)]
@@ -88,6 +104,10 @@ class Index:
         """
         output = []
         
+        title = 'index.txt'
+        output.append(title)
+        output.append('¯' * len(title))
+
         for token, term in sorted(self.__terms.items()):
             
             render_occurence = lambda id, doc:"('{0}', {1})".format(id, doc['times'])

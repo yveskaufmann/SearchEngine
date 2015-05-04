@@ -1,6 +1,9 @@
 __author__ = 'Yves'
 
+import re
 import unittest
+
+
 from parser.html import HTMLParser
 from os.path import join, dirname 
 from utils.path import RessourceUtil
@@ -12,11 +15,12 @@ class TestHTMLParser(unittest.TestCase):
         expected_links = [ 'd{0:02}.html'.format(i)  for i in range(2, 5) ]
         self.assertListEqual(parse_result.out_links, expected_links) 
 
-    def test_parseDummyPage_LeadingAndTraillingWhitespacesShouldRemovedFromContent(self):
+    def test_parseDummyPage_LeadingAndTraillingSpacesShouldRemovedFromContent(self):
         parse_result = self.parse_page()
-        self.assertRegex(parse_result.content, '^[^\s]+.*[^\s]$')
+        pattern_leading_and_trailing_spaces = re.compile('^[^\s]+.*[^\s]$', re.M)
+        self.assertRegex(parse_result.content, pattern_leading_and_trailing_spaces)
     
-    def test_parseDummyPage_ContentIsExtracted(self):
+    def test_parseDummyPage_ContentIsExtracted(self): 
         expected_content = 'Python hates me :)'
         parse_result = self.parse_page('<html><body>' + expected_content + '</body></html>')
         self.assertEqual(expected_content, parse_result.content)
