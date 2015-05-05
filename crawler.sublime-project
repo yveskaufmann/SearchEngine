@@ -16,7 +16,7 @@
 	],
 	 "settings":
     {
-        "anaconda_linting": false,
+        "anaconda_linting": true,
         "anaconda_linting_behaviour": "always",
         "test_command": "python3.4 -m unittest discover",
         "use_pylint": false,

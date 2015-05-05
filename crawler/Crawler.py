@@ -1,13 +1,10 @@
-__author__ = 'pascal'
-
 import os
 import re
 
-from bs4 import BeautifulSoup
-from model.model import Page
 from parser.html import HTMLParser
-from utils.path import PathUtil
 from utils.path import RessourceUtil
+
+__author__ = 'pascal'
 
 class Crawler:
 
@@ -18,11 +15,10 @@ class Crawler:
         with open(url, "r") as file:
             return file.read()
 
-
     @DeprecationWarning #Please use util.path.RessourceUtil.get_ressource_path instead of get_path_for_material
     @staticmethod
     def get_path_for_material(file_name):
-        material_dir = os.path.join(os.path.dirname(__file__), os.pardir, "docs","ressources")
+        material_dir = os.path.join(os.path.dirname(__file__), os.pardir, "docs", "ressources")
         return os.path.join(material_dir, file_name)
 
     @staticmethod
@@ -34,7 +30,6 @@ class Crawler:
         print("out_links: \n¯¯¯¯¯¯¯¯¯¯")
         for link in page.out_links:
             print(link)
-
 
     @DeprecationWarning #Please check if you need this method, because HTMLParser ignores empty lines by default.
     @staticmethod
@@ -74,7 +69,7 @@ class Crawler:
 
     def get_link_structure_text(self):
         """Prints an array of pages, just like in link_structure.txt"""
-        sorted_pages = sorted(self.data, key= lambda p: p.title)
+        sorted_pages = sorted(self.data, key=lambda p: p.title)
         result = ""
         for page in sorted_pages:
             outlink_titles = ""
@@ -88,10 +83,9 @@ class Crawler:
             result += page.title + ":" + outlink_titles + "\n"
         return result
 
-
     def put_url_in_cache(self, url):
         if url not in self.url_cache:
-                self.url_cache.append(url)
+            self.url_cache.append(url)
 
     def page_for_url(self, url):
         for page in self.data:
@@ -107,7 +101,7 @@ class Crawler:
         txt = Crawler.string_for_url(url)
         
         parser = HTMLParser()
-        page = parser.parse(txt, base_url = RessourceUtil.get_ressource_path())
+        page = parser.parse(txt, base_url=RessourceUtil.get_ressource_path())
         page.url = url
 
         self.data.append(page)
@@ -119,7 +113,7 @@ class Crawler:
 
         while self.url_cache != []:
             unseen_links = []
-            while True: 
+            while True:
                 url = self.url_cache.pop(0)
                 out_links = (self.extract_data_and_get_out_links(url))
                 tmp_links = self.merge_without_duplicates(url_db, out_links)
@@ -127,5 +121,3 @@ class Crawler:
                 if not self.url_cache:
                     self.url_cache = unseen_links
                     break
-
-

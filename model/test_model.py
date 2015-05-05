@@ -1,13 +1,11 @@
-__author__ = 'Yves'
-
 import unittest
 import os
 
 from model.model import Index
 from model.model import Page
 
-
 class TestPage(unittest.TestCase):
+    
     def test_str_outputStringIsAsExpected(self):
         test_page = Page()
         test_page.title = 'D01'
@@ -44,4 +42,3 @@ class TestIndex(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
-

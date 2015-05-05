@@ -1,6 +1,5 @@
 import os
 
-
 class RessourceException(Exception):
 	pass
 
@@ -11,11 +10,10 @@ class PathUtil:
 
 	@staticmethod
 	def get_content_from_file(path):
-
 		""" 
-			Read and returns the content of file 
-			specified by path. If the path isn't a existing file
-			a FileNotFoundError will be thrown.
+		Read and returns the content of file 
+		specified by path. If the path isn't a existing file
+		a FileNotFoundError will be thrown.
 		"""
 
 		PathUtil.ensure_path_exists(path)
@@ -26,25 +24,26 @@ class PathUtil:
 	@staticmethod
 	def ensure_path_exists(path):
 		"""
-			Throws a FileNotFoundError if the specified 
-			path isn't a existing file.
+		Throws a FileNotFoundError if the specified 
+		path isn't a existing file.
 		"""
+		
 		if not os.path.exists(path):
 			raise FileNotFoundError('The "{0}" path dont exists.'.format(path))
 
 class RessourceUtil:
-
 	"""
-		Handy methods for ressource handling.
-		By ressource is mean a file in side 
-		the directory doc/ressources. 
+	Handy methods for ressource handling.
+	By ressource is mean a file in side 
+	the directory doc/ressources. 
 	"""
 
 	@staticmethod
-	def get_ressource_path(ressource_name = None):
+	def get_ressource_path(ressource_name=None):
 		"""
-			Returns the path to a specifc ressource or to the ressource folder.
+		Returns the path to a specifc ressource or to the ressource folder.
 		"""
+
 		ressource_folder = ['docs', 'ressources']
 
 		if ressource_name is not None:
@@ -53,7 +52,7 @@ class RessourceUtil:
 		ressource_path = os.path.join(*ressource_folder)
 
 		if os.path.isdir(ressource_path) and not ressource_path.endswith('/'):
-			ressource_path+= '/'
+			ressource_path += '/'
 
 		return ressource_path
 
@@ -65,6 +64,7 @@ class RessourceUtil:
 			no such ressource then a RessourceException 
 			will be thrown.
 		"""
+
 		try:
 			ressource_path = RessourceUtil.get_ressource_path(ressource_name)
 			return PathUtil.get_content_from_file(ressource_path)
@@ -77,6 +77,7 @@ class RessourceUtil:
 			Throws a RessourceException if the specified ressource
 			don't exists.
 		"""
+
 		try:
 			ressource_path = RessourceUtil.get_ressource_path(ressource_name)
 			PathUtil.ensure_path_exists(ressource_path)
@@ -86,11 +87,3 @@ class RessourceUtil:
 	@staticmethod
 	def __handleFileNotFoundError(filename):
 		raise RessourceException('The "{0}" ressource dont exists.'.format(filename))
-
-
-
-
-
-
-
-
