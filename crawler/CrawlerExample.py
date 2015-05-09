@@ -12,12 +12,11 @@ __author__ = 'pascal'
 #                           |_|
 
 def crawler_example():
-   
     # Create a seed
     seed = [
-        RessourceUtil.get_ressource_path('d01.html'),
-        RessourceUtil.get_ressource_path('d06.html'),
-        RessourceUtil.get_ressource_path('d08.html')
+        'http://people.f4.htw-berlin.de/fileadmin/user_upload/Dozenten/WI-Dozenten/Classen/DAWeb/smdocs/d01.html',
+        'http://people.f4.htw-berlin.de/fileadmin/user_upload/Dozenten/WI-Dozenten/Classen/DAWeb/smdocs/d06.html',
+        'http://people.f4.htw-berlin.de/fileadmin/user_upload/Dozenten/WI-Dozenten/Classen/DAWeb/smdocs/d08.html'
     ]
 
     # Instatiate the crawler.
@@ -27,10 +26,10 @@ def crawler_example():
     crawler.start_crawling(seed)
 
     # Access the data.
-    crawler.data
+    crawler.pages
 
     # Print the data...
-    for page in crawler.data:
+    for page in crawler.pages.data:
         # with print_page(page_object)
         Crawler.print_page(page)
 
@@ -42,7 +41,11 @@ def crawler_example():
     indexer = Indexer()
 
     # Index the pages
-    indexer.index_pages(*crawler.data)
+    indexer.index_pages(*crawler.pages.data)
 
     # Print your index
     print(indexer.index)
+
+    # Print the content
+    crawler.print_contents()
+

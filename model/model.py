@@ -1,5 +1,11 @@
 import os
 
+class Pages:
+    data = []
+    @staticmethod
+    def get():
+        return Pages.data
+
 class Page:
 
     def __init__(self):

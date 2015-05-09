@@ -1,14 +1,15 @@
 import os
 import re
+import urllib
+from model.model import Pages
 
 from parser.html import HTMLParser
-from utils.path import RessourceUtil
 
 __author__ = 'pascal'
 
 class Crawler:
 
-    data = []
+    pages = Pages()
 
     @staticmethod
     def string_for_url(url):
@@ -62,16 +63,26 @@ class Crawler:
         return difference
 
     def already_fetched_url(self, url):
-        for page in self.data:
+        for page in self.pages.data:
             if page.url == url:
                 return True
         return False
 
+    def print_contents(self):
+        for page in self.pages.data:
+            print("---------------------------------------------------------------------------")
+            print(page.title)
+            print("---------------------------------------------------------------------------")
+            print(page.content + "\n")
+
+    def sort_data(self):
+        sorted_pages = sorted(self.pages.data, key=lambda p: p.title)
+        self.pages.data = sorted_pages
+
     def get_link_structure_text(self):
         """Prints an array of pages, just like in link_structure.txt"""
-        sorted_pages = sorted(self.data, key=lambda p: p.title)
         result = ""
-        for page in sorted_pages:
+        for page in self.pages.data:
             outlink_titles = ""
             count = 0
             for url in page.out_links:
@@ -88,23 +99,21 @@ class Crawler:
             self.url_cache.append(url)
 
     def page_for_url(self, url):
-        for page in self.data:
+        for page in self.pages.data:
             if page.url == url:
                 return page
 
     def page_for_title(self, title):
-        for page in self.data:
+        for page in self.pages.data:
             if page.title == title:
                 return page
 
     def extract_data_and_get_out_links(self, url):
-        txt = Crawler.string_for_url(url)
-        
+        txt = urllib.request.urlopen(url).read()
         parser = HTMLParser()
-        page = parser.parse(txt, base_url=RessourceUtil.get_ressource_path())
+        page = parser.parse(txt, base_url=url)
         page.url = url
-
-        self.data.append(page)
+        self.pages.data.append(page)
         return page.out_links
 
     def start_crawling(self, seed):
@@ -121,3 +130,6 @@ class Crawler:
                 if not self.url_cache:
                     self.url_cache = unseen_links
                     break
+        self.sort_data()
+
+
