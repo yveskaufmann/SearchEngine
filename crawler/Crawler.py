@@ -1,46 +1,14 @@
-import os
-import re
 import urllib
-from model.model import Pages
 
+from model.page import Pages
 from parser.html import HTMLParser
 
 __author__ = 'pascal'
 
 class Crawler:
 
-    pages = Pages()
-
-    @staticmethod
-    def string_for_url(url):
-        with open(url, "r") as file:
-            return file.read()
-
-    @DeprecationWarning #Please use util.path.RessourceUtil.get_ressource_path instead of get_path_for_material
-    @staticmethod
-    def get_path_for_material(file_name):
-        material_dir = os.path.join(os.path.dirname(__file__), os.pardir, "docs", "ressources")
-        return os.path.join(material_dir, file_name)
-
-    @staticmethod
-    def print_page(page):
-        """handy method for printing Page objects"""
-        print("\n\n" + page.title + " \n===")
-        print("url: \n¯¯¯¯\n" + page.url)
-        print("content: \n¯¯¯¯¯¯¯¯\n" + page.content)
-        print("out_links: \n¯¯¯¯¯¯¯¯¯¯")
-        for link in page.out_links:
-            print(link)
-
-    @DeprecationWarning #Please check if you need this method, because HTMLParser ignores empty lines by default.
-    @staticmethod
-    def remove_empty_lines(txt):
-        new_txt = ""
-        for line in txt.splitlines():
-            regex = re.compile(r"^[^\s][^\n][a-zA-Z0-9]*.*$")
-            if regex.match(line):
-                new_txt += line + "\n"
-        return new_txt
+    def __init__(self):
+        self.pages = Pages()
 
     @staticmethod
     def merge_without_duplicates(target_list, source_list):
@@ -63,26 +31,12 @@ class Crawler:
         return difference
 
     def already_fetched_url(self, url):
-        for page in self.pages.data:
-            if page.url == url:
-                return True
-        return False
-
-    def print_contents(self):
-        for page in self.pages.data:
-            print("---------------------------------------------------------------------------")
-            print(page.title)
-            print("---------------------------------------------------------------------------")
-            print(page.content + "\n")
-
-    def sort_data(self):
-        sorted_pages = sorted(self.pages.data, key=lambda p: p.title)
-        self.pages.data = sorted_pages
+        return self.pages.has_page_with_url(url)
 
     def get_link_structure_text(self):
         """Prints an array of pages, just like in link_structure.txt"""
         result = ""
-        for page in self.pages.data:
+        for page in self.pages:
             outlink_titles = ""
             count = 0
             for url in page.out_links:
@@ -99,21 +53,16 @@ class Crawler:
             self.url_cache.append(url)
 
     def page_for_url(self, url):
-        for page in self.pages.data:
-            if page.url == url:
-                return page
+        return self.pages.get_page_by_url(url)
 
     def page_for_title(self, title):
-        for page in self.pages.data:
-            if page.title == title:
-                return page
+        return self.pages.get_page_by_title(title)
 
     def extract_data_and_get_out_links(self, url):
         txt = urllib.request.urlopen(url).read()
         parser = HTMLParser()
-        page = parser.parse(txt, base_url=url)
-        page.url = url
-        self.pages.data.append(page)
+        page = parser.parse(txt, url)
+        self.pages.append(page)
         return page.out_links
 
     def start_crawling(self, seed):
@@ -130,6 +79,7 @@ class Crawler:
                 if not self.url_cache:
                     self.url_cache = unseen_links
                     break
-        self.sort_data()
+
+        self.pages.sort()
 
 

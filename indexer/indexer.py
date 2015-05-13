@@ -1,5 +1,8 @@
 from indexer.lexer import TokenLexer
-from model.model import Index
+from model.index import Index
+
+from model.page import Page
+from model.page import Pages
 
 class Indexer:
 	"""
@@ -10,19 +13,21 @@ class Indexer:
 		self.__index = Index()
 		self.__already_indexed_pages = set()
 
-	def index_pages(self, *pages):
+	def index_pages(self, pages):
 		"""
 		Index a sequence of pages
 		"""
+		if not isinstance(pages, Pages):
+			raise TypeError('pages must be an instance of Pages')
 
 		for page in pages:
-			self.index_page(page)
+			self.__index_page(page)
 
-	def index_page(self, page):
+	def __index_page(self, page):
 		"""
 		Index a single page
 		"""
-		
+
 		# Prevent that a page is indexed multiple times
 		if page.title in self.__already_indexed_pages:
 			return
@@ -39,5 +44,5 @@ class Indexer:
 		"""
 		Returns the complete inverted index
 		"""
-		
+
 		return self.__index

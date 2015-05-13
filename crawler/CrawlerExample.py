@@ -1,6 +1,5 @@
 from crawler.Crawler import Crawler
 from indexer.indexer import Indexer
-from utils.path import RessourceUtil
 
 __author__ = 'pascal'
 
@@ -25,27 +24,22 @@ def crawler_example():
     # Start the crawler with the seed.
     crawler.start_crawling(seed)
 
-    # Access the data.
-    crawler.pages
-
-    # Print the data...
-    for page in crawler.pages.data:
-        # with print_page(page_object)
-        Crawler.print_page(page)
-
-    # Print the link structure
-    link_structure_txt = crawler.get_link_structure_text()
-    print(link_structure_txt)
+    # Access the pages.
+    pages = crawler.pages
 
     # Create an Indexer
     indexer = Indexer()
 
     # Index the pages
-    indexer.index_pages(*crawler.pages.data)
+    indexer.index_pages(pages)
+
+    # Print the link structure
+    link_structure_txt = crawler.get_link_structure_text()
+    print(link_structure_txt)
 
     # Print your index
     print(indexer.index)
 
-    # Print the content
-    crawler.print_contents()
+    # Print the content of the pages
+    print(pages)
 

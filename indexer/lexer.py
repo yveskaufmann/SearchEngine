@@ -1,16 +1,16 @@
 import re
 
-from model.model import Page
+from model.page import Page
 from utils.path import RessourceUtil
 
 class StopWords:
     """
     A collection of words which should be omitted from indexing.
     """
-    
+
     def get():
         """
-        Returns a list of stop words which are 
+        Returns a list of stop words which are
         stored in the stop_words.txt.
 
         Notice: The stop_word.txt will be loaded
@@ -20,11 +20,11 @@ class StopWords:
 
         if not hasattr(StopWords, 'words'):
             StopWords.load()
-        
+
         return StopWords.words
 
     def is_stop_word(token):
-        """ 
+        """
         Determines if a given token/string is a stop word
         and returns True in this case.
         """
@@ -35,18 +35,25 @@ class StopWords:
 
     def load():
         """
-        Load the stop words from 
+        Load the stop words from
         the file docs/ressources/stop_words.txt.
-        """ 
-        
+        """
+
         stop_words = RessourceUtil.get_content_from_ressource('stop_words.txt')
         # A crappy hack in order to load all stop words because i'm lazy :)
         StopWords.words = eval('[' + stop_words + ']')
 
+class TokenNormalizer:
+    @staticmethod
+    def normalize(token):
+        token = token.strip()
+        token = token.lower()
+        return token
+
 class TokenLexer:
-    """ 
+    """
     Split a given page into a sequence of normalized tokens.
-    and omit stop words. 
+    and omit stop words.
     """
 
     def __init__(self, page):
@@ -59,15 +66,14 @@ class TokenLexer:
         self.__page = page
 
     def tokens(self):
-        """  
-        Create iterator which can be used to iterate 
+        """
+        Create iterator which can be used to iterate
         over all tokens of the current page.
         """
-        
+
         tokens = self.__get_tokens()
         for token in tokens:
-            token = token.strip()
-            token = token.lower()
+            token = TokenNormalizer.normalize(token)
             if self.__is_stopword(token):
                 continue
             yield token
@@ -79,6 +85,8 @@ class TokenLexer:
 
     def __is_stopword(self, token):
         return StopWords.is_stop_word(token)
+
+
 
 
 
