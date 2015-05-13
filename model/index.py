@@ -44,8 +44,11 @@ class Index:
         return 0
 
     def __contains__(self, token):
-        term = self.normalize(token)
+        term = self.__normalize(token)
         return term in self.__terms
+
+    def items(self):
+        return self.__terms.items()
 
     def __str__(self):
         """

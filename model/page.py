@@ -81,24 +81,3 @@ class Pages(UserList):
 
         content_of_pages = [ str(page) for page in self ]
         return (os.linesep*2).join( [header] + content_of_pages)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
