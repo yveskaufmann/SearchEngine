@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 from model.page import Page
 from utils.list import ListUtil
 from utils.url import URLUtils
+import re
+
+
 
 class HTMLParser:
 	"""
@@ -14,7 +17,7 @@ class HTMLParser:
 		dom = self.parseDocument(text)
 		page = Page()
 		page.title = self.get_text_from_element('title')
-		page.content = self.get_text_from_element('body')
+		page.content = self.remove_a_tags(self.get_text_from_element('body'))
 		page.url = url
 
 		def read_link(link):
@@ -24,6 +27,15 @@ class HTMLParser:
 		page.out_links = ListUtil.to_list_without_duplicated_entries(page.out_links)
 
 		return page
+
+	def remove_a_tags(self, txt):
+		result = ''
+		for line in txt.splitlines():
+			match = re.sub(r'^(See also).*$', ' ', line)
+			if match != '' and match != ' ':
+			    result += match + '\n'
+		return result
+
 
 	def parseDocument(self, text):
 		self.dom = BeautifulSoup(text, 'html')
