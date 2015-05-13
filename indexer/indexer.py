@@ -1,6 +1,6 @@
 from indexer.lexer import TokenLexer
-from model.index import Index
 
+from model.index import Index
 from model.page import Page
 from model.page import Pages
 

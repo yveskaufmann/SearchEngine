@@ -25,6 +25,7 @@ class Index:
         Returns the posting list for a given term if
         it is in the index otherwise None will be returned.
         """
+
         term = self.__normalize(token)
         if term in self.__terms:
             return copy.deepcopy(self.__terms[term]['postings'])
@@ -41,6 +42,10 @@ class Index:
             return self.__terms[term]['document_frequency']
 
         return 0
+
+    def __contains__(self, token):
+        term = self.normalize(token)
+        return term in self.__terms
 
     def __str__(self):
         """

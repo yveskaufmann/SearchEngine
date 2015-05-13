@@ -43,3 +43,4 @@ def crawler_example():
     # Print the content of the pages
     print(pages)
 
+
