@@ -45,5 +45,5 @@ def crawler_example():
     print(pages)
 
     analyzer = CosinunsAnalyzer(indexer.index, crawler.pages)
-    ret = analyzer.analyze("tokens classification")
+    ret = analyzer.analyze("tokens")
     print(list(ret))
