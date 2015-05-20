@@ -1,4 +1,4 @@
-import urllib
+from urllib.request import urlopen
 
 from model.page import Pages
 from parser.html import HTMLParser
@@ -59,7 +59,7 @@ class Crawler:
         return self.pages.get_page_by_title(title)
 
     def extract_data_and_get_out_links(self, url):
-        txt = urllib.request.urlopen(url).read()
+        txt = urlopen(url).read()
         parser = HTMLParser()
         page = parser.parse(txt, url)
         self.pages.append(page)
@@ -81,5 +81,3 @@ class Crawler:
                     break
 
         self.pages.sort()
-
-
