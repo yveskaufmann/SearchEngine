@@ -45,5 +45,8 @@ def crawler_example():
     print(pages)
 
     analyzer = CosinunsAnalyzer(indexer.index, crawler.pages)
-    ret = analyzer.analyze("tokens")
-    print(list(ret))
+
+    for query in ['tokens', 'index', 'tokens classification' ]:
+        ret = analyzer.analyze(query)
+        print('Query: ' + query)
+        print(list(ret))

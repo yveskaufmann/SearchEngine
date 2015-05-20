@@ -36,10 +36,20 @@ class CosinunsAnalyzer:
 
     def analyze(self, query):
         """ Analyze a given query and returns the corresponding hits """
-        hits = {}
+
+        query_terms = [ query for query in self.query_to_tokens(query) ]
+
+        # Vector length calculation
         length = self.caclulate_length()
-        for term in self.query_to_tokens(query):
-            wtq = self.idf_weight(term)  # log(N / dtf)
+        query_length = 0
+        for term in query_terms:
+            query_length += self.idf_weight(term) ** 2
+        query_length = math.sqrt(query_length)
+        hits = {}
+
+        # Score terms
+        for term in query_terms:
+            wtq = self.idf_weight(term)
             posting_list = self.index.get_posting_list(term)
             for doc_id, doc_meta in posting_list.items():
                 if doc_id not in hits:
@@ -48,14 +58,14 @@ class CosinunsAnalyzer:
                 term_frequency = doc_meta['term_frequency']
                 tf_weight = self.log_weight_frequency(term_frequency)
                 idf_weight = self.idf_weight(term)
-                tf_idf_weight = tf_weight * idf_weight  # wt,d
+                tf_idf_weight = tf_weight * idf_weight
 
                 hits[doc_id]['score'] += tf_idf_weight * wtq
-                hits[doc_id]['length'] += wtq**2
 
+        # Normalize score vectors
         for doc_id, hit in hits.items():
             hit['score'] = hit['score'] / length[doc_id]
-            hit['score'] = hit['score'] / math.sqrt(hit['length'])
+            hit['score'] = hit['score'] / query_length
 
         for doc_id, hit in sorted(hits.items(), key=lambda h: h[1]['score'], reverse=True):
             yield doc_id + ": " + str(hit['score'])
@@ -70,7 +80,7 @@ class CosinunsAnalyzer:
         if term not in self.index:
             return 0
         dft = self.index.get_document_frequency(term)
-        return math.log10(float(self.N / math.log10(dft)))
+        return math.log10(float(self.N / dft))
 
     def query_to_tokens(self, query):
         page = Page()
