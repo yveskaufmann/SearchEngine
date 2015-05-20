@@ -59,7 +59,6 @@ class CosinunsAnalyzer:
                 tf_weight = self.log_weight_frequency(term_frequency)
                 idf_weight = self.idf_weight(term)
                 tf_idf_weight = tf_weight * idf_weight
-
                 hits[doc_id]['score'] += tf_idf_weight * wtq
 
         # Normalize score vectors
@@ -68,7 +67,7 @@ class CosinunsAnalyzer:
             hit['score'] = hit['score'] / query_length
 
         for doc_id, hit in sorted(hits.items(), key=lambda h: h[1]['score'], reverse=True):
-            yield doc_id + ": " + str(hit['score'])
+            yield doc_id + ":   " + str(hit['score'])
 
     def log_weight_frequency(self, frequence):
         """ Calculate the log frequency weight """

@@ -5,8 +5,6 @@ from utils.list import ListUtil
 from utils.url import URLUtils
 import re
 
-
-
 class HTMLParser:
 	"""
 	Parser which extract out links and the
