@@ -5,7 +5,7 @@ from model.page import Pages
 from model.page import Page
 from indexer.lexer import TokenLexer
 
-class CosinunsAnalyzer:
+class CosinusAnalyzer:
 
     def __init__(self, index, pages):
 

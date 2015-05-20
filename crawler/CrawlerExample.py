@@ -1,6 +1,6 @@
 from crawler.Crawler import Crawler
 from indexer.indexer import Indexer
-from analyzer.cosinus import CosinunsAnalyzer
+from analyzer.cosinus import CosinusAnalyzer
 
 __author__ = 'pascal'
 
@@ -44,7 +44,7 @@ def crawler_example():
     # Print the content of the pages
     print(pages)
 
-    analyzer = CosinunsAnalyzer(indexer.index, crawler.pages)
+    analyzer = CosinusAnalyzer(indexer.index, crawler.pages)
 
     import os
     for query in ['tokens', 'index', 'tokens classification' ]:
