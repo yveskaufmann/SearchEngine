@@ -1,3 +1,4 @@
+import os
 from urllib.request import urlopen
 
 from model.page import Pages
@@ -35,18 +36,11 @@ class Crawler:
 
     def get_link_structure_text(self):
         """Prints an array of pages, just like in link_structure.txt"""
-        result = ""
+        result = []
         for page in self.pages:
-            outlink_titles = ""
-            count = 0
-            for url in page.out_links:
-                count += 1
-                link = self.page_for_url(url)
-                outlink_titles += link.title
-                if count != len(page.out_links):
-                    outlink_titles += ","
-            result += page.title + ":" + outlink_titles + "\n"
-        return result
+            outpages_txt = ','.join([outpage.title for outpage in page.out_pages])
+            result.append(page.title + ':' + outpages_txt)
+        return os.linesep.join(result)
 
     def put_url_in_cache(self, url):
         if url not in self.url_cache:
@@ -65,6 +59,13 @@ class Crawler:
         self.pages.append(page)
         return page.out_links
 
+    def fill_pages_with_outpages(self):
+        for page in self.pages:
+            for out_link in page.out_links:
+                outpage = self.pages.get_page_by_url(out_link)
+                if outpage is not None:
+                    page.out_pages.append(outpage)
+
     def start_crawling(self, seed):
         self.url_cache = list(seed)
         url_db = list(seed)
@@ -81,3 +82,4 @@ class Crawler:
                     break
 
         self.pages.sort()
+        self.fill_pages_with_outpages()

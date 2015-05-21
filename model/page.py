@@ -9,6 +9,7 @@ class Page:
         self.content = ""
         self.url = ""
         self.out_links = []
+        self.out_pages = Pages()
 
     def __str__(self):
         """
@@ -35,7 +36,6 @@ class Page:
         print("out_links: \n¯¯¯¯¯¯¯¯¯¯")
         for link in self.out_links:
             print(link)
-
 
 class Pages(UserList):
 

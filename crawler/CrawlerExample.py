@@ -48,3 +48,4 @@ def crawler_example():
     for query in ['tokens', 'index', 'tokens classification' ]:
         hits = analyzer.analyze(query)
         print(hits)
+
