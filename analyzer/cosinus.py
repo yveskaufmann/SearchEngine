@@ -1,8 +1,10 @@
 import math
 
+from analyzer.hit import Hit
+from analyzer.hit import Hits
 from model.index import Index
-from model.page import Pages
 from model.page import Page
+from model.page import Pages
 from indexer.lexer import TokenLexer
 
 class CosinusAnalyzer:
@@ -16,75 +18,94 @@ class CosinusAnalyzer:
             raise TypeError('index must be an instance of Index')
 
         self.index = index
-        self.pages = pages
-        self.N = pages.count()
-
-    def caclulate_length(self):
-        docs = {}
-        for term, meta in self.index.items():
-            for doc_id, doc in meta['postings'].items():
-                if doc_id not in docs:
-                    docs[doc_id] = []
-                if meta['document_frequency'] > 0:
-                    tfidf = (1 + math.log10(doc['term_frequency'])) * math.log10(float(self.N / meta['document_frequency'] ))
-                    docs[doc_id].append(tfidf)
-
-        for doc_id, doc in docs.items():
-            docs[doc_id] = math.sqrt(sum([x**2 for x in doc]))
-
-        return docs
+        self.count_of_pages = pages.count()
+        self.length_of_pages = self.caclulate_length_of_pages()
 
     def analyze(self, query):
-        """ Analyze a given query and returns the corresponding hits """
+        """
+        Analyze a given query and returns the corresponding hits
+        """
 
-        query_terms = [ query for query in self.query_to_tokens(query) ]
-
-        # Vector length calculation
-        length = self.caclulate_length()
         query_length = 0
-        for term in query_terms:
-            query_length += self.idf_weight(term) ** 2
-        query_length = math.sqrt(query_length)
-        hits = {}
+        page_scores = {}
+        query_tokens = self.__query_to_tokens(query)
 
-        # Score terms
-        for term in query_terms:
+        # Calculate page_scores
+        for term in query_tokens:
             wtq = self.idf_weight(term)
-            posting_list = self.index.get_posting_list(term)
-            for doc_id, doc_meta in posting_list.items():
-                if doc_id not in hits:
-                    hits[doc_id] = {'score': 0, 'length': 0}
+            query_length += wtq ** 2
+            for page_id in self.index.get_posting_list(term):
+                tf_idf_weight = self.tf_idf_weight(term, page_id)
+                if page_id not in page_scores:
+                    page_scores[page_id] = 0
+                page_scores[page_id] += tf_idf_weight * wtq
 
-                term_frequency = doc_meta['term_frequency']
-                tf_weight = self.log_weight_frequency(term_frequency)
-                idf_weight = self.idf_weight(term)
-                tf_idf_weight = tf_weight * idf_weight
-                hits[doc_id]['score'] += tf_idf_weight * wtq
+        query_length = math.sqrt(query_length)
 
-        # Normalize score vectors
-        for doc_id, hit in hits.items():
-            hit['score'] = hit['score'] / length[doc_id]
-            hit['score'] = hit['score'] / query_length
+        # Normalize score vectors and build the hit list
+        hits = Hits(query_tokens)
+        for page_id, score in page_scores.items():
+            hit = Hit(page_id, score)
+            hit.score /= self.length_of_pages[page_id]
+            hit.score /= query_length
+            hits.append(hit)
 
-        for doc_id, hit in sorted(hits.items(), key=lambda h: h[1]['score'], reverse=True):
-            yield doc_id + ":   " + str(hit['score'])
+        hits.sort()
 
-    def log_weight_frequency(self, frequence):
-        """ Calculate the log frequency weight """
-        if frequence >= 0:
+        return hits
+
+    def caclulate_length_of_pages(self):
+        """
+        Calculate the length of the vector space for each page in the index
+        """
+        page_lengths = {}
+        for term in self.index:
+            for page_id in self.index.get_posting_list(term):
+                if page_id not in page_lengths:
+                    page_lengths[page_id] = 0
+
+                tf_idf_weight = self.tf_idf_weight(term, page_id)
+                page_lengths[page_id] += tf_idf_weight ** 2
+
+        for page_id, page in page_lengths.items():
+            page_lengths[page_id] = math.sqrt(page_lengths[page_id])
+
+        return page_lengths
+
+    def tf_idf_weight(self, term, page_id):
+        """
+        Calculate the tf-idf weight for the term in the page
+        with the id 'page_id'.
+        """
+        return self.tf_weight(term, page_id) * self.idf_weight(term)
+
+    def tf_weight(self, term, page_id):
+        """
+        Calculate log frequency weight of the term in the page
+        with the id 'page_id'.
+        """
+        frequence = self.index.get_term_frequency(term, page_id)
+        if frequence > 0:
             return 1 + math.log10(frequence)
         return 0
 
     def idf_weight(self, term):
+        """
+        Calculate idf weight of the term,
+        idf is a measure of the informativeness of the term.
+        """
         if term not in self.index:
             return 0
         dft = self.index.get_document_frequency(term)
-        return math.log10(float(self.N / dft))
+        return math.log10(float(self.count_of_pages / dft))
 
-    def query_to_tokens(self, query):
+    def __query_to_tokens(self, query):
+        """
+        Split the query into tokens
+        """
         page = Page()
         page.content = query
         lexer = TokenLexer(page)
-        return lexer.tokens()
+        return list(lexer.tokens())
 
 
