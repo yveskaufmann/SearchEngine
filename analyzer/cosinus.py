@@ -75,6 +75,10 @@ class CosinusAnalyzer:
         return page_lengths
 
     def get_length_of_pages_text(self):
+        """
+        Create the string representation for the length of pages
+        vector.
+        """
         output = [StringUtil.header('doc_lengthes.txt')]
         for page_id in sorted(self.length_of_pages):
             length_entry = page_id + ':' + ' ' * 4 + str(self.length_of_pages[page_id])
