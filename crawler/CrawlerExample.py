@@ -1,6 +1,7 @@
 from crawler.Crawler import Crawler
 from indexer.indexer import Indexer
 from analyzer.cosinus import CosinusAnalyzer
+from utils.string import StringUtil
 
 __author__ = 'pascal'
 
@@ -45,6 +46,9 @@ def crawler_example():
     print(pages)
 
     analyzer = CosinusAnalyzer(indexer.index, crawler.pages)
+    print(analyzer.get_length_of_pages_text())
+
+    print(StringUtil.header('cosine_scores.txt'))
     for query in ['tokens', 'index', 'tokens classification' ]:
         hits = analyzer.analyze(query)
         print(hits)

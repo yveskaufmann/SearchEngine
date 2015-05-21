@@ -1,4 +1,5 @@
 import math
+import os
 
 from analyzer.hit import Hit
 from analyzer.hit import Hits
@@ -6,6 +7,7 @@ from model.index import Index
 from model.page import Page
 from model.page import Pages
 from indexer.lexer import TokenLexer
+from utils.string import StringUtil
 
 class CosinusAnalyzer:
 
@@ -71,6 +73,14 @@ class CosinusAnalyzer:
             page_lengths[page_id] = math.sqrt(page_lengths[page_id])
 
         return page_lengths
+
+    def get_length_of_pages_text(self):
+        output = [StringUtil.header('doc_lengthes.txt')]
+        for page_id in sorted(self.length_of_pages):
+            length_entry = page_id + ':' + ' ' * 4 + str(self.length_of_pages[page_id])
+            output.append(length_entry)
+
+        return os.linesep.join(output) + os.linesep
 
     def tf_idf_weight(self, term, page_id):
         """
