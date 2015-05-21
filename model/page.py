@@ -75,6 +75,14 @@ class Pages(UserList):
 
         self.data.sort(key=key, reverse=reverse)
 
+    def get_link_structure_text(self):
+        """Prints an array of the pages, just like in link_structure.txt"""
+        result = [StringUtil.header('link_structure.txt')]
+        for page in self:
+            outpages_txt = ','.join([outpage.title for outpage in page.out_pages])
+            result.append(page.title + ':' + outpages_txt)
+        return os.linesep.join(result)
+
     def __str__(self):
         """ Create the string representation of all pages """
         header = StringUtil.header('Content of Pages')

@@ -35,7 +35,7 @@ def crawler_example():
     indexer.index_pages(pages)
 
     # Print the link structure
-    link_structure_txt = crawler.get_link_structure_text()
+    link_structure_txt = pages.get_link_structure_text()
     print(link_structure_txt)
 
     # Print your index

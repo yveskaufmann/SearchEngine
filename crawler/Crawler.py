@@ -1,4 +1,3 @@
-import os
 from urllib.request import urlopen
 
 from model.page import Pages
@@ -30,27 +29,6 @@ class Crawler:
             if url not in target_list:
                 difference.append(url)
         return difference
-
-    def already_fetched_url(self, url):
-        return self.pages.has_page_with_url(url)
-
-    def get_link_structure_text(self):
-        """Prints an array of pages, just like in link_structure.txt"""
-        result = []
-        for page in self.pages:
-            outpages_txt = ','.join([outpage.title for outpage in page.out_pages])
-            result.append(page.title + ':' + outpages_txt)
-        return os.linesep.join(result)
-
-    def put_url_in_cache(self, url):
-        if url not in self.url_cache:
-            self.url_cache.append(url)
-
-    def page_for_url(self, url):
-        return self.pages.get_page_by_url(url)
-
-    def page_for_title(self, title):
-        return self.pages.get_page_by_title(title)
 
     def extract_data_and_get_out_links(self, url):
         txt = urlopen(url).read()
