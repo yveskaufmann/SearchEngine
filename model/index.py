@@ -101,7 +101,6 @@ class Index:
 
         output = []
         output.append(header)
-        output.append('')
 
         for token, term in sorted(self.__terms.items()):
 

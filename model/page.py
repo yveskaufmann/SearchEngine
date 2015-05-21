@@ -81,11 +81,11 @@ class Pages(UserList):
         for page in self:
             outpages_txt = ','.join([outpage.title for outpage in page.out_pages])
             result.append(page.title + ':' + outpages_txt)
-        return os.linesep.join(result)
+        return os.linesep.join(result) + os.linesep
 
     def __str__(self):
         """ Create the string representation of all pages """
         header = StringUtil.header('Content of Pages')
 
         content_of_pages = [ str(page) for page in self ]
-        return (os.linesep*2).join( [header] + content_of_pages)
+        return os.linesep.join( [header] + content_of_pages)

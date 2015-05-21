@@ -27,7 +27,6 @@ class TestIndex(unittest.TestCase):
         expected_output = os.linesep.join([
             'index.txt',
             '¯¯¯¯¯¯¯¯¯',
-            '',
             '(DaDaDa, df:1) -> [(\'d01\', 2)]',
             '(DumDiDum, df:2) -> [(\'d02\', 1), (\'d03\', 1)]',
             ''
