@@ -53,3 +53,14 @@ def crawler_example():
         hits = analyzer.analyze(query)
         print(hits)
 
+    row = 0
+    matrix = []
+    for page in pages:
+        outlinks = []
+        for c in range(1, pages.count() + 1):
+            title = "d0" + str(c)
+            outlinks.append(page.out_pages.has_page_with_title(title))
+        matrix.append(outlinks)
+        row += 1
+    print(matrix)
+
