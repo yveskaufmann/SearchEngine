@@ -52,11 +52,11 @@ class Page_Rank(object):
             print(row)
 
     def calculate_page_rank(self, convergence):
+        tmp_pr = [i for i in range(len(self.pages.data))]
         step0 = 1/len(self.matrix)
         for i in self.pages.data:
             i.page_rank = step0
         diff = 1.0
-        tmp_pr = [i for i in range(len(self.pages.data))]
         while diff > convergence:
             col = 0
             for lila in self.pages.data:
@@ -66,14 +66,18 @@ class Page_Rank(object):
                     bla = self.matrix[row][col]
                     tmp += gelb.page_rank * self.matrix[row][col]
                     row += 1
-                col = 1
-                tmp_pr[col] = lila.page_rank
-                lila.page_rank = tmp
+                tmp_pr[col] = tmp
+                col += 1
+            count = 0
+            for i in tmp_pr:
+                self.pages.data[count].page_rank = i
+                count += 1
             count = 0
             diff = 0
             for i in self.pages.data:
-                diff += abs(i.page_rank - tmp_pr[count])
+                diff += abs(tmp_pr[count] - i.page_rank)
                 count += 1
+
 
 
 
