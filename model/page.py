@@ -10,6 +10,7 @@ class Page:
         self.url = ""
         self.out_links = []
         self.out_pages = Pages()
+        self.page_rank = 0.0
 
     def __str__(self):
         """
