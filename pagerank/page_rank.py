@@ -47,17 +47,18 @@ class Page_Rank(object):
         #     print(row)
 
     def calculate_page_rank(self, convergence):
-        print("             d01     d02     d03     d04     d05     d06     d07     d08     diff")
+        print("            d01     d02     d03     d04     d05     d06     d07     d08     diff")
         tmp_pr = [i for i in range(len(self.pages.data))]
         out_put = []
         step0 = 1/len(self.matrix)
         for i in self.pages.data:
             i.page_rank = step0
-            out_put.append(round(i.page_rank, 4))
-        print("step :  0 ", out_put)
+            out_put.append(i.page_rank)
+        print("step :  0", out_put)
         # for each in self.pages.data:
         #     print(round(each.page_rank, 4))
         diff = 1.0
+        count_step = 1
         while diff > convergence:
             col = 0
             for lila in self.pages.data:
@@ -69,15 +70,17 @@ class Page_Rank(object):
                     row += 1
                 tmp_pr[col] = tmp
                 col += 1
+            diff = 0
+            count = 0
+            for i in self.pages.data:
+                diff += abs(tmp_pr[count] - i.page_rank)
+                count += 1
+
             count = 0
             out_put = []
             for i in tmp_pr:
                 self.pages.data[count].page_rank = i
-                out_put.append(round(i, 4))
                 count += 1
-            count = 0
-            diff = 0
-        for i in self.pages.data:
-            diff += abs(tmp_pr[count] - i.page_rank)
-            count += 1
-            print("step : ", col, out_put, diff)
+                out_put.append(round(i, 4))
+            print("step : ", count_step, out_put, round(diff, 4))
+            count_step += 1
