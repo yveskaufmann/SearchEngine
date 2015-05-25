@@ -80,15 +80,7 @@ class Page_Rank(object):
             for i in tmp_pr:
                 self.pages.data[count].page_rank = i
                 count += 1
-<<<<<<< Updated upstream
                 out_put.append(round(i, 4))
             print("step : ", count_step, out_put, round(diff, 4))
             count_step += 1
-=======
-            count = 0
-            diff = 0
-        for i in self.pages.data:
-            diff += abs(tmp_pr[count] - i.page_rank)
-            count += 1
-            print("step : ", col, out_put, diff)
->>>>>>> Stashed changes
+
