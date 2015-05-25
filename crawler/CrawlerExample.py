@@ -45,6 +45,8 @@ def crawler_example():
     # Print the content of the pages
     print(pages)
 
+    # Replace me with your Page Rank Calculation :)
+
     example_queries = ['tokens', 'index', 'tokens classification' ]
     analyzer = CosinusAnalyzer(indexer.index, crawler.pages)
     print(analyzer.get_length_of_pages_text())
@@ -62,14 +64,4 @@ def crawler_example():
         print(hits)
     print()
 
-    row = 0
-    matrix = []
-    for page in pages:
-        outlinks = []
-        for c in range(1, pages.count() + 1):
-            title = "d0" + str(c)
-            outlinks.append(page.out_pages.has_page_with_title(title))
-        matrix.append(outlinks)
-        row += 1
-    print(matrix)
 
