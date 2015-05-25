@@ -45,13 +45,22 @@ def crawler_example():
     # Print the content of the pages
     print(pages)
 
+    example_queries = ['tokens', 'index', 'tokens classification' ]
     analyzer = CosinusAnalyzer(indexer.index, crawler.pages)
     print(analyzer.get_length_of_pages_text())
 
     print(StringUtil.header('cosine_scores.txt'))
-    for query in ['tokens', 'index', 'tokens classification' ]:
+    for query in example_queries:
         hits = analyzer.analyze(query)
         print(hits)
+    print()
+
+    print(StringUtil.header('Cosinus combined with Page Rank'))
+    analyzer = CosinusAnalyzer(indexer.index, crawler.pages, combine_with_page_rank=True)
+    for query in example_queries:
+        hits = analyzer.analyze(query)
+        print(hits)
+    print()
 
     row = 0
     matrix = []
