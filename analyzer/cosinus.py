@@ -11,7 +11,7 @@ from utils.string import StringUtil
 
 class CosinusAnalyzer:
 
-    def __init__(self, index, pages, combine_with_page_rank=False):
+    def __init__(self, index, pages):
 
         if not isinstance(index, Index):
             raise TypeError('index must be an instance of Index')
@@ -23,9 +23,8 @@ class CosinusAnalyzer:
         self.count_of_pages = pages.count()
         self.pages = pages
         self.length_of_pages = self.caclulate_length_of_pages()
-        self.combine_with_page_rank = combine_with_page_rank
 
-    def analyze(self, query):
+    def analyze(self, query, combine_with_page_rank=False):
         """
         Analyze a given query and returns the corresponding hits
         """
@@ -53,7 +52,7 @@ class CosinusAnalyzer:
             hit.score /= self.length_of_pages[page_id]
             hit.score /= query_length
 
-            if ( self.combine_with_page_rank ):
+            if ( combine_with_page_rank ):
                 hit.score *= self.pages.get_page_by_title(page_id).page_rank
 
             hits.append(hit)
