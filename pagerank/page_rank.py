@@ -39,15 +39,16 @@ class Page_Rank(object):
                     count_col += 1
 
     def calculate_page_rank(self, convergence):
+        float_format = "{:.4f}"
         print("Page Rank \n¯¯¯¯¯¯¯¯¯")
-        print("            d01     d02     d03     d04     d05     d06     d07     d08     diff")
+        print("           d01    d02    d03    d04    d05    d06    d07    d08    diff")
         tmp_pr = [i for i in range(len(self.pages.data))]
         out_put = []
         step0 = 1/len(self.matrix)
         for i in self.pages.data:
             i.page_rank = step0
-            out_put.append(i.page_rank)
-        print("step :  0", out_put)
+            out_put.append(float_format.format(i.page_rank))
+        print("step: 0", "[" + " ".join(out_put) + "]")
         # for each in self.pages.data:
         #     print(round(each.page_rank, 4))
         diff = 1.0
@@ -73,6 +74,6 @@ class Page_Rank(object):
             for i in tmp_pr:
                 self.pages.data[count].page_rank = i
                 count += 1
-                out_put.append(round(i, 4))
-            print("step : ", count_step, out_put, round(diff, 4))
+                out_put.append(float_format.format(i))
+            print("step:", count_step, "[" + " ".join(out_put) + "]", float_format.format(diff))
             count_step += 1

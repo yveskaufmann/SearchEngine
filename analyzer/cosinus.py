@@ -86,7 +86,7 @@ class CosinusAnalyzer:
         """
         output = [StringUtil.header('doc_lengthes.txt')]
         for page_id in sorted(self.length_of_pages):
-            length_entry = page_id + ':' + ' ' * 4 + str(self.length_of_pages[page_id])
+            length_entry = page_id + ':' + ' ' * 4 + '{:.6f}'.format(self.length_of_pages[page_id])
             output.append(length_entry)
 
         return os.linesep.join(output) + os.linesep

@@ -55,7 +55,7 @@ def main():
     print()
 
     # Scoring
-    example_queries = ['tokens', 'index', 'tokens classification' ]
+    example_queries = ['tokens', 'index', 'classification', 'tokens classification' ]
     analyzer = CosinusAnalyzer(index, pages)
     print(analyzer.get_length_of_pages_text())
 

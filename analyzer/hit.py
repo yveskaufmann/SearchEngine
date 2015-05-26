@@ -7,7 +7,7 @@ class Hit:
         self.score = score
 
     def __str__(self):
-        return self.page_id + ":" + (" " * 4) + str(self.score)
+        return self.page_id + ':' + (' ' * 4) + '{:.6f}'.format(self.score)
 
 class Hits(UserList):
     def __init__(self, query):
