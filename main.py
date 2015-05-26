@@ -14,6 +14,7 @@ from crawler.Crawler import Crawler
 from indexer.indexer import Indexer
 from analyzer.cosinus import CosinusAnalyzer
 from utils.string import StringUtil
+from pagerank.page_rank import Page_Rank
 
 def main():
     """ An example how the search engine could be used.  """
@@ -46,7 +47,12 @@ def main():
     index = indexer.index
     print(index)
 
-    ### Replace me with your Page Rank Calculation :)
+    # Calculation and Printing of Page Rank
+    pagerank = Page_Rank()
+    pagerank.fill_matrix(crawler)
+    pagerank.calculate_probabilities(0.05, 0.95)
+    pagerank.calculate_page_rank(0.04)
+    print()
 
     # Scoring
     example_queries = ['tokens', 'index', 'tokens classification' ]

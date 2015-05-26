@@ -1,13 +1,10 @@
 from model.page import Pages
-import math
-import os
 
 __author__ = 'hannah'
 
 class Page_Rank(object):
 
     matrix = []
-    # page_rank = []
     pages = Pages()
 
     def fill_matrix(self, crawler_data):
@@ -20,8 +17,6 @@ class Page_Rank(object):
                 outlinks.append(page.out_pages.has_page_with_title(title))
             self.matrix.append(outlinks)
             row += 1
-        #for row in self.matrix:
-        #    print(row)
 
     def calculate_probabilities(self, teleportation, damping):
         count_row = 0
@@ -42,10 +37,9 @@ class Page_Rank(object):
                 for col in row:
                     self.matrix[count_row][count_col] = 1.0/len(row)
                     count_col += 1
-        # for row in self.matrix:
-        #     print(row)
 
     def calculate_page_rank(self, convergence):
+        print("Page Rank \n¯¯¯¯¯¯¯¯¯")
         print("            d01     d02     d03     d04     d05     d06     d07     d08     diff")
         tmp_pr = [i for i in range(len(self.pages.data))]
         out_put = []
@@ -74,7 +68,6 @@ class Page_Rank(object):
             for i in self.pages.data:
                 diff += abs(tmp_pr[count] - i.page_rank)
                 count += 1
-
             count = 0
             out_put = []
             for i in tmp_pr:
@@ -83,4 +76,3 @@ class Page_Rank(object):
                 out_put.append(round(i, 4))
             print("step : ", count_step, out_put, round(diff, 4))
             count_step += 1
-
